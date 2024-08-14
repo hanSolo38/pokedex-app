@@ -1,0 +1,25 @@
+:root {
+    --headerFont: "Bungee Tint", sans-serif;
+    --defaultFontWeight: 400;
+    --defaultFontStyle: normal;
+    --mainBodyFont: "Kanit", sans-serif;
+}
+
+body {
+    padding: 16px;
+}
+h1 {
+    font-family: var(--headerFont);
+    font-weight: var(--defaultFontWeight);
+    font-style: var(--defaultFontStyle);
+}
+.mainBody {
+    font-family: var(--mainBodyFont);
+    font-weight: var(--defaultFontWeight);
+    font-style: var(--defaultFontStyle);
+    text-align: center;
+}
+.pokeList {
+    display: inline-block;
+    text-align: left;
+}
