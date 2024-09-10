@@ -1,21 +1,36 @@
-let pokemonList = [
-    {name: "bulbasaur", 
-        type: ["grass", "poison"], 
-        height: 7, 
-        abilities: ["chlorophyll", "overgrow"]},
-    {name: "charmander", 
-        type: "fire", 
-        height: 6, 
-        abilities: ["blaze", "solarPower"]},
-    {name: "squirtle", 
-        type: "water", 
-        height: 5, 
-        abilities: ["rainDish", "torrent"]},
-    {name: "pikachu", 
-        type: "electric", 
-        height: 4, 
-        abilities: ["static", "lightningrod"]}
-];
+let pokemonRepository = (function () {
+    
+    let pokemonList = [
+        {name: "bulbasaur", 
+            type: ["grass", "poison"], 
+            height: 7, 
+            abilities: ["chlorophyll", "overgrow"]},
+        {name: "charmander", 
+            type: "fire", 
+            height: 6, 
+            abilities: ["blaze", "solarPower"]},
+        {name: "squirtle", 
+            type: "water", 
+            height: 5, 
+            abilities: ["rainDish", "torrent"]},
+        {name: "pikachu", 
+            type: "electric", 
+            height: 4, 
+            abilities: ["static", "lightningrod"]}
+    ]
+
+    function getAll () {
+        return pokemonList;
+    }
+    function add (pokemon) {
+        pokemonList.push(pokemon);
+    }
+
+    return {
+        getAll: getAll,
+        add: add
+    }
+})();
 
 // replaced to use forEach
 //loop to grab name and height of pokemonList array. separated name and height to bold name and italicize height
@@ -36,4 +51,4 @@ function myLoopFunction(pokemon) {
         document.write("<b> Wow, that's a big Pokemon! </b>");
     }
 }
-pokemonList.forEach(myLoopFunction);
+pokemonRepository.getAll().forEach(myLoopFunction);
