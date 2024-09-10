@@ -22,8 +22,16 @@ let pokemonRepository = (function () {
     function getAll () {
         return pokemonList;
     }
+
+    // function add (pokemon) {
+    //     pokemonList.push(pokemon);
+    // }
+
+    // This is from the bonus task for a conditional in the add funtion. Is this correct?
     function add (pokemon) {
-        pokemonList.push(pokemon);
+        if (typeof pokemon === 'object'){
+            pokemonList.push(pokemon)
+        }
     }
 
     return {
