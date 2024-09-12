@@ -29,8 +29,16 @@ let pokemonRepository = (function () {
 
     // This is from the bonus task for a conditional in the add funtion. Is this correct?
     function add (pokemon) {
-        if (typeof pokemon === 'object'){
+        if (
+            typeof pokemon === 'object' &&
+            "name" in pokemon &&
+            "type" in pokemon && 
+            "height" in pokemon &&
+            "abilities" in pokemon
+        ) {
             pokemonList.push(pokemon)
+        } else {
+            console.log("Incorrect Pokemon");
         }
     }
 
