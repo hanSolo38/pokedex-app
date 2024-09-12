@@ -50,3 +50,17 @@ ul {
 li {
     margin-bottom: 10px;
   }
+
+#loading-message {
+    position: fixed; /* Makes the element fixed relative to the viewport */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the element */
+    background-color: rgba(0, 0, 0, 0.7); /* Background color with transparency */
+    color: white; /* Text color */
+    padding: 20px; /* Padding around the text */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    z-index: 1000; /* Ensure it appears on top of other content */
+    display: none;  /*Initially hidden */
+}
