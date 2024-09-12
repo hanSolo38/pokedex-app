@@ -23,3 +23,30 @@ h1 {
     display: inline-block;
     text-align: left;
 }
+.button-class {
+    display: block;
+    width: 200px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #da7e69;
+    border-radius: 5px;
+    border: 2px solid #ff0202;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    text-align: center;
+    margin: 0 auto;
+}
+.button-class:hover,
+.button-class:focus {
+    background-color: #7577f4;
+    border-color: #000000;
+    color: #e0e0e0;
+    outline: none;
+}
+ul {
+    padding: 0;
+    list-style-type: none;
+  }
+li {
+    margin-bottom: 10px;
+  }

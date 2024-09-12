@@ -34,9 +34,35 @@ let pokemonRepository = (function () {
         }
     }
 
+    function showDetails(pokemon){
+        console.log(pokemon);
+    }
+
+    function addEventListenerToButton(button, pokemon) {
+        button.addEventListener('click', function() {
+            showDetails(pokemon);
+        });
+    }
+
+    function addListItem(pokemon){
+        let pokemonList = document.querySelector(".pokemon-list");
+        let listPokemon = document.createElement("li");
+        let button = document.createElement("button");
+        button.innerText = pokemon.name;
+        button.classList.add("button-class");
+        // removed bc added function instead
+        // button.addEventListener('click', function() {
+        //     showDetails(pokemon);
+        // });
+        listPokemon.appendChild(button);
+        pokemonList.appendChild(listPokemon);
+        addEventListenerToButton(button, pokemon);
+    }
+
     return {
         getAll: getAll,
-        add: add
+        add: add,
+        addListItem: addListItem
     }
 })();
 
@@ -52,11 +78,18 @@ let pokemonRepository = (function () {
 //     } 
 // }
 
-function myLoopFunction(pokemon) {
-    document.write("<br><b>" + pokemon.name + "</b>");
-    document.write("<i> (height:" + pokemon.height + ") </i>");
-    if (pokemon.height > 6) {
-        document.write("<b> Wow, that's a big Pokemon! </b>");
-    }
-}
-pokemonRepository.getAll().forEach(myLoopFunction);
+// removed to use addListItem function created in pokemonRepository
+//function myLoopFunction(pokemon) {
+
+    // document.write("<br><b>" + pokemon.name + "</b>");
+    // document.write("<i> (height:" + pokemon.height + ") </i>");
+    // if (pokemon.height > 6) {
+    //     document.write("<b> Wow, that's a big Pokemon! </b>");
+    // }
+//}
+
+console.log(pokemonRepository.getAll());
+
+pokemonRepository.getAll().forEach(function (pokemon){
+    pokemonRepository.addListItem(pokemon);
+});
