@@ -1,26 +1,26 @@
 :root {
-    --headerFont: "Bungee Tint", sans-serif;
-    --defaultFontWeight: 400;
-    --defaultFontStyle: normal;
-    --mainBodyFont: "Kanit", sans-serif;
-    --defaultBackgroundColor: rgb(242, 227, 169);
+  --headerFont: "Bungee Tint", sans-serif;
+  --defaultFontWeight: 400;
+  --defaultFontStyle: normal;
+  --mainBodyFont: "Kanit", sans-serif;
+  --defaultBackgroundColor: rgb(242, 227, 169);
 }
 
 body {
-    padding: 16px;
-    background-color: var(--defaultBackgroundColor);
+  padding: 16px;
+  background-color: var(--defaultBackgroundColor);
 }
 h1 {
-    font-family: var(--headerFont);
-    font-weight: var(--defaultFontWeight);
-    font-style: var(--defaultFontStyle);
+  font-family: var(--headerFont);
+  font-weight: var(--defaultFontWeight);
+  font-style: var(--defaultFontStyle);
 }
 .mainBody {
-    margin-top: 80px;
-    font-family: var(--mainBodyFont);
-    font-weight: var(--defaultFontWeight);
-    font-style: var(--defaultFontStyle);
-    text-align: center;
+  margin-top: 80px;
+  font-family: var(--mainBodyFont);
+  font-weight: var(--defaultFontWeight);
+  font-style: var(--defaultFontStyle);
+  text-align: center;
 }
 /*.pokeList {
     display: inline-block;
@@ -28,64 +28,64 @@ h1 {
 }
 */
 .button-class {
-    display: block;
-    width: 200px;
-    padding: 10px 20px;
-    color: #fff;
-    background-color: #da7e69;
-    border-radius: 5px;
-    border: 2px solid #ff0202;
-    text-transform: uppercase;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    text-align: center;
-    margin: 0 auto;
+  display: block;
+  width: 200px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #da7e69;
+  border-radius: 5px;
+  border: 2px solid #ff0202;
+  text-transform: uppercase;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  text-align: center;
+  margin: 0 auto;
 }
 .button-class:hover,
 .button-class:focus {
-    background-color: #7577f4;
-    border-color: #000000;
-    color: #e0e0e0;
-    outline: none;
+  background-color: #7577f4;
+  border-color: #000000;
+  color: #e0e0e0;
+  outline: none;
 }
 ul {
-    padding: 0;
-    list-style-type: none;
-  }
+  padding: 0;
+  list-style-type: none;
+}
 li {
-    margin-bottom: 10px;
-  }
+  margin-bottom: 10px;
+}
 #loading-message {
-    position: fixed; /* Makes the element fixed relative to the viewport */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Center the element */
-    background-color: rgba(0, 0, 0, 0.7); /* Background color with transparency */
-    color: white; /* Text color */
-    padding: 20px; /* Padding around the text */
-    border-radius: 8px; /* Rounded corners */
-    font-size: 16px; /* Font size */
-    z-index: 1000; /* Ensure it appears on top of other content */
-    display: none;  /*Initially hidden */
+  position: fixed; /* Makes the element fixed relative to the viewport */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the element */
+  background-color: rgba(0, 0, 0, 0.7); /* Background color with transparency */
+  color: white; /* Text color */
+  padding: 20px; /* Padding around the text */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  z-index: 1000; /* Ensure it appears on top of other content */
+  display: none; /*Initially hidden */
 }
 .list-group {
-    display: inline-block;
+  display: inline-block;
 }
 .list-group-item {
-    background-color: var(--defaultBackgroundColor);
-    border-width: thin;
-    width: 100%;
+  background-color: var(--defaultBackgroundColor);
+  border-width: thin;
+  width: 100%;
 }
 .navbar {
-    font-family: var(--mainBodyFont);
-    background-color: rgb(207, 195, 147);
+  font-family: var(--mainBodyFont);
+  background-color: rgb(207, 195, 147);
 }
 .navbar-brand {
-    font-family: var(--headerFont);
+  font-family: var(--headerFont);
 }
 .modal-title {
-    font-family: var(--headerFont);
-    font-size: xx-large;
-    text-transform: uppercase;
+  font-family: var(--headerFont);
+  font-size: xx-large;
+  text-transform: uppercase;
 }
 
 /* 
@@ -113,22 +113,22 @@ li {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center content horizontally */
- /*   text-align: center;  /* Center text inside block-level elements */
- /*   background: var(--defaultBackgroundColor); /* Modal background color */
- /*   padding: 20px; /* Padding to ensure space for the close button */
- /*   box-sizing: border-box;
+/*   text-align: center;  /* Center text inside block-level elements */
+/*   background: var(--defaultBackgroundColor); /* Modal background color */
+/*   padding: 20px; /* Padding to ensure space for the close button */
+/*   box-sizing: border-box;
  /*   border-radius: 8px;
  /*   position: relative; /* For positioning the close button */
- /*   max-width: 90%; /* To ensure it doesn't overflow on smaller screens */
- /*   max-height: 90%; /* To ensure it fits within the viewport */
- /*   overflow: auto; /* To handle overflowing content */
+/*   max-width: 90%; /* To ensure it doesn't overflow on smaller screens */
+/*   max-height: 90%; /* To ensure it fits within the viewport */
+/*   overflow: auto; /* To handle overflowing content */
 /*}
 
 .modal-close {
     position: absolute;
     top: 10px; /* Distance from the top of the modal */
-  /*    right: 10px; /* Distance from the right of the modal */
-  /*    display: flex;
+/*    right: 10px; /* Distance from the right of the modal */
+/*    display: flex;
      align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -136,8 +136,8 @@ li {
 
 .modal h1 {
     margin: 0; /* Remove default margins */
-  /*    padding-top: 20px; /* Add top padding to ensure it's not covered by the close button */
- /* }
+/*    padding-top: 20px; /* Add top padding to ensure it's not covered by the close button */
+/* }
 
 .modal p {
     margin-bottom: 0;
