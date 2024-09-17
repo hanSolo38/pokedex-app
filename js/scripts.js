@@ -1,5 +1,5 @@
 let pokemonRepository = (function () {
-    let modalContainer = document.querySelector('#modal-container');
+    // let modalContainer = document.querySelector('#modal-container');
     let pokemonList = [];
     // removed to use pokemon API
     //     {name: "bulbasaur", 
