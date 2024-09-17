@@ -94,6 +94,7 @@ let pokemonRepository = (function () {
         pokemon.imageUrlBack = details.sprites.back_default;
         pokemon.height = details.height;
         pokemon.weight = details.weight;
+        pokemon.id = details.id;
 
         // added array for types as there could be multiple
         pokemon.types = [];
@@ -219,6 +220,7 @@ let pokemonRepository = (function () {
       let modalWeight = document.querySelector(".pokemon-weight");
       let modalTypes = document.querySelector(".pokemon-types");
       let modalAbilities = document.querySelector(".pokemon-abilities");
+      let modalId = document.querySelector(".pokemon-id");
 
       modalTitle.innerText = pokemon.name;
       modalImageFront.src = pokemon.imageUrlFront;
@@ -227,6 +229,7 @@ let pokemonRepository = (function () {
       modalWeight.innerText = "Weight: " + pokemon.weight;
       modalTypes.innerText = "Types: " + pokemon.types.join(", ");
       modalAbilities.innerText = "Abilities: " + pokemon.abilities.join(", ");
+      modalId.innerText = "Pokemon #: " + pokemon.id;
 
       $("#pokemonModal").modal("show");
     });

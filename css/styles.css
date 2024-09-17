@@ -87,7 +87,14 @@ li {
   font-size: xx-large;
   text-transform: uppercase;
 }
-
+.modal-body {
+  background-color: var(--defaultBackgroundColor);
+}
+.modal-footer {
+  font-family: var(--headerFont);
+  font-size: large;
+  text-transform: uppercase;
+}
 /* 
 #modal-container {
     display: none;
