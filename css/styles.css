@@ -16,6 +16,7 @@ h1 {
     font-style: var(--defaultFontStyle);
 }
 .mainBody {
+    margin-top: 80px;
     font-family: var(--mainBodyFont);
     font-weight: var(--defaultFontWeight);
     font-style: var(--defaultFontStyle);
@@ -73,6 +74,13 @@ li {
     background-color: var(--defaultBackgroundColor);
     border-width: thin;
     width: 100%;
+}
+.navbar {
+    font-family: var(--mainBodyFont);
+    background-color: rgb(207, 195, 147);
+}
+.navbar-brand {
+    font-family: var(--headerFont);
 }
 .modal-title {
     font-family: var(--headerFont);

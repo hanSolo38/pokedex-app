@@ -11,10 +11,32 @@
     <title>Pokedex Project</title>
   </head>
   <body>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: rgb(250, 241, 209);">
+      <a class="navbar-brand" href="#">PokeDex</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">Current</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Detailed List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Full Abilities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Your Caught Pokemon</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     <div class="mainBody">
       <div id="loading-message">Loading...</div>
         <!-- <div class="pokeList">-->
-      
         <h1>Pokemon List</h1>
       <ul class="pokemon-list list-group"></ul>
       <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> name</button>-->
@@ -42,7 +64,7 @@
               <p class="pokemon-abilities"></p>
             </div>
             <div class="modal-footer">
-              test 2
+              Sample Text. May Include buttons
             </div>
           </div>
         </div>

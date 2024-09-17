@@ -173,13 +173,13 @@ let pokemonRepository = (function () {
         let pokemonImage = document.createElement("img");
         pokemonImage.classList.add('img');
         pokemonImage.src = pokemon.imageUrlFront;
-        pokemonImage.alt = "Image of Pokemon";
+        pokemonImage.alt = "Image of " + pokemon.name;
 
         let button = document.createElement("button");
         button.innerText = pokemon.name;
         button.classList.add("button-class");
         button.classList.add("btn");
-        //'button.setAttribute('data-toggle', 'modal');
+        button.setAttribute('data-toggle', 'modal');
         // removed bc added function instead
         // button.addEventListener('click', function() {
         //     showDetails(pokemon);
