@@ -97,22 +97,69 @@ let pokemonRepository = (function () {
         pokemon.id = details.id;
 
         // added array for types as there could be multiple
-        pokemon.types = [];
-        details.types.forEach(function (typeArray) {
-          pokemon.types.push(typeArray.type.name);
-        });
+        // removed to make shorter
+        // pokemon.types = [];
+        // details.types.forEach(function (typeArray) {
+        //   pokemon.types.push(typeArray.type.name);
+        // });
 
-        pokemon.abilities = [];
-        details.abilities.forEach(function (abilityArray) {
-          pokemon.abilities.push(abilityArray.ability.name);
-        });
+        // pokemon.abilities = [];
+        // details.abilities.forEach(function (abilityArray) {
+        //   pokemon.abilities.push(abilityArray.ability.name)
+        // });
+        pokemon.types = details.types.map(typeArray => typeArray.type.name);
+        pokemon.abilities = details.abilities.map(abilityArray => abilityArray.ability.name);
+  
+    // Fetch the evolves_from details
+        let speciesUrl = details.species.url;
+        return fetch(speciesUrl);
+        })
+        .then(function (response) {
+          return response.json();
+        })
+      .then(function (speciesEvolutionFrom) {
+        if (speciesEvolutionFrom.evolves_from_species) {
+          pokemon.evolvesFromUrl = speciesEvolutionFrom.evolves_from_species.url;
+          return fetch(pokemon.evolvesFromUrl)
+            .then(response => response.json())
+            .then(evolvesFromDetails => {
+              pokemon.evolvesFromName = evolvesFromDetails.name;
+            });
+        } else {
+          pokemon.evolvesFromUrl = null;
+          return Promise.resolve();
+        }
       })
-      .catch(function (e) {
-        console.error(e);
-      })
-      .then(function () {
-        hideLoadingMessage();
+    // Fetch evolution-to chain
+    .then(() => {
+      let speciesEvolutionTo = pokemon.detailsUrl;
+      return fetch(speciesEvolutionTo)
+      .then(response => response.json())
+      .then(details => fetch(details.species.url))
+      .then(response => response.json())
+      .then(speciesEvolutionToDetails => fetch(speciesEvolutionToDetails.evolution_chain.url))
+      .then(response => response.json())
+      .then(evolutionChainDetails => {
+        pokemon.evolvesTo = [];
+        let chain = evolutionChainDetails.chain;
+        if (chain.evolves_to.length > 0) {
+          chain.evolves_to.forEach(evolve => {
+            pokemon.evolvesTo.push(evolve.species.name);
+            if (evolve.evolves_to.length > 0) {
+              evolve.evolves_to.forEach(evolveTo => {
+                pokemon.evolvesTo.push(evolveTo.species.name);
+              });
+            }
+          });
+        }
       });
+    })
+    .catch(function (e) {
+      console.error(e);
+    })
+    .then(function () {
+      hideLoadingMessage();
+    });
   }
 
   // Removed to use bootstrap modal
@@ -221,6 +268,8 @@ let pokemonRepository = (function () {
       let modalTypes = document.querySelector(".pokemon-types");
       let modalAbilities = document.querySelector(".pokemon-abilities");
       let modalId = document.querySelector(".pokemon-id");
+      let modalEvolvesTo = document.querySelector(".pokemon-evolves-to");
+      let modalEvolvesFrom = document.querySelector(".pokemon-evolves-from");
 
       modalTitle.innerText = pokemon.name;
       modalImageFront.src = pokemon.imageUrlFront;
@@ -230,6 +279,8 @@ let pokemonRepository = (function () {
       modalTypes.innerText = "Types: " + pokemon.types.join(", ");
       modalAbilities.innerText = "Abilities: " + pokemon.abilities.join(", ");
       modalId.innerText = "Pokemon #: " + pokemon.id;
+      modalEvolvesTo.innerText = "Evolves To: " + (pokemon.evolvesTo.length > 0 ? pokemon.evolvesTo[0] : "None");
+      modalEvolvesFrom.innerText = "Evolves From: " + pokemon.evolvesFromName; 
 
       $("#pokemonModal").modal("show");
     });
@@ -274,7 +325,8 @@ let pokemonRepository = (function () {
 //}
 
 pokemonRepository.loadList().then(function () {
-  pokemonRepository.getAll().forEach(function (pokemon) {
+  let sortedPokemon = pokemonRepository.getAll().sort((a, b) => a.name.localeCompare(b.name));
+  sortedPokemon.forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
   });
 });
